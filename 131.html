@@ -1,35 +1,37 @@
 <!doctype html>
 <html lang="zh"><head>
-<title>文章归档：2024/2 - 折影轻梦</title>
+<title>Typecho文章字数计算 - 折影轻梦</title>
 <meta charset="UTF-8">
 <meta name="keywords" content="折影轻梦,Mixcm,轻惋,觅漫者,小舒同学,Xiaoshu,Nexmoe,产品,Meteor,探索者小舒,伴学OS1,Theme,Design,Product">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="https://unavatar.io/nexmoe?ttl=21" type="image/png" />
-<meta name="description" content="纯粹、热爱、勇敢">
-<meta property="og:type" content="website">
-<meta property="og:title" content="折影轻梦">
-<meta property="og:url" content="https://nexmoe.com/archives/2024/02/index.html">
+<meta name="description" content="炒鸡简单的，只需要在当前使用的主题的根目录的 functions.php 插入如下代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typecho文章字数计算">
+<meta property="og:url" content="https://nexmoe.com/131.html">
 <meta property="og:site_name" content="折影轻梦">
-<meta property="og:description" content="纯粹、热爱、勇敢">
+<meta property="og:description" content="炒鸡简单的，只需要在当前使用的主题的根目录的 functions.php 插入如下代码">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-02-17T16:30:00.000Z">
+<meta property="article:modified_time" content="2024-03-05T03:50:48.000Z">
 <meta property="article:author" content="折影轻梦">
-<meta property="article:tag" content="折影轻梦,Mixcm,轻惋,觅漫者,小舒同学,Xiaoshu,Nexmoe,产品,Meteor,探索者小舒,伴学OS1,Theme,Design,Product">
+<meta property="article:tag" content="Typecho">
 <meta name="twitter:card" content="summary">
 
 <link rel="stylesheet" href="/lib/fancybox/fancybox.css">
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1709727636880">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1709727636781">
 
-<link rel="stylesheet" href="/css/style.css?v=1709727636880">
+<link rel="stylesheet" href="/css/style.css?v=1709727636781">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1709727636880">
+        <link rel="stylesheet" href="/custom.css?v=1709727636781">
     
 
 
@@ -39,7 +41,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1709727636880"></script>
+<script async src="/js/app.js?v=1709727636781"></script>
 
  
 
@@ -225,20 +227,18 @@
 <img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a>
 
     </div>
-</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><section class="nexmoe-posts">
-    <div class="nexmoe-post">
-        <a href="/undefined.html">
-            
-                <div class="nexmoe-post-cover mdui-ripple"> 
-                    <img src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1559251606-c623743a6d76?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTN8fHBpbmt8ZW58MHx8fHwxNjYzMDQ0Nzc2&ixlib=rb-1.2.1&w=1920" alt="Hello World" loading="lazy">
-                    <h1>Hello World</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta">
+</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1559251606-c623743a6d76?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTN8fHBpbmt8ZW58MHx8fHwxNjYzMDQ0Nzc2&ixlib=rb-1.2.1&w=1920" alt="Typecho文章字数计算" loading="lazy">
+            <h1>Typecho文章字数计算</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
     <div class="nexmoe-rainbow">
-        <a class="nexmoefont icon-calendar-fill">2024年02月29日</a>
+        <a class="nexmoefont icon-calendar-fill">2017年02月18日</a>
         
         
     </div>
@@ -249,11 +249,63 @@
     
 </div>
 
-        <article>
-            
-        </article>
+    <p>炒鸡简单的，只需要在当前使用的主题的根目录的 <cat>functions.php</cat> 插入如下代码</p>
+<span id="more"></span>
+
+<p>当前仅仅统计文章中的中文字数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">art_count</span> (<span class="params"><span class="variable">$cid</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$db</span>=<span class="title class_">Typecho_Db</span>::<span class="variable constant_">get</span> ();</span><br><span class="line">    <span class="variable">$rs</span>=<span class="variable">$db</span>-&gt;<span class="title function_ invoke__">fetchRow</span> (<span class="variable">$db</span>-&gt;<span class="title function_ invoke__">select</span> (<span class="string">&#x27;table.contents.text&#x27;</span>)-&gt;<span class="keyword">from</span> (<span class="string">&#x27;table.contents&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span> (<span class="string">&#x27;table.contents.cid=?&#x27;</span>,<span class="variable">$cid</span>)-&gt;<span class="title function_ invoke__">order</span> (<span class="string">&#x27;table.contents.cid&#x27;</span>,<span class="title class_">Typecho_Db</span>::<span class="variable constant_">SORT_ASC</span>)-&gt;<span class="title function_ invoke__">limit</span> (<span class="number">1</span>));</span><br><span class="line">    <span class="variable">$text</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="string">&quot;/[^\x&#123;4e00&#125;-\x&#123;9fa5&#125;]/u&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="variable">$rs</span>[<span class="string">&#x27;text&#x27;</span>]);</span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">mb_strlen</span>(<span class="variable">$text</span>,<span class="string">&#x27;UTF-8&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在需要引用的地方插入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">art_count</span>(<span class="variable">$this</span>-&gt;cid); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>折影轻梦<br>
+        <strong>本文链接：</strong><a href="https://nexmoe.com/131.html" title="https:&#x2F;&#x2F;nexmoe.com&#x2F;131.html" target="_blank" rel="noopener">https:&#x2F;&#x2F;nexmoe.com&#x2F;131.html</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
     </div>
-</section> </div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Typecho/" rel="tag">Typecho</a>
+    
+</div>
+  
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <script src="https://giscus.app/client.js"
+    data-repo="nexmoe/nexmoe.com"
+    data-repo-id="R_kgDOJI1XUA"
+    data-category="General"
+    data-category-id="DIC_kwDOJI1XUM4CU1nn"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+</script>
+
+      </div>
+  
+</div></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
         <div class="nexmoe-tool">
 
             
